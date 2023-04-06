@@ -17,7 +17,6 @@ public class PersonServices {
 	
 	
 	public String addPerson(Integer id, String name, String password, int option) {
-		try {
 			char firstCaracter = name.charAt(0);
 			boolean firstCaracterIsNumber = Character.isDigit(firstCaracter);
 			Person existingPerson = this.getByName(name);
@@ -37,15 +36,12 @@ public class PersonServices {
 			        throw new DomainException("A user with that name already exists");
 			    }
 				if (firstCaracterIsNumber == true) {
-					throw new DomainException("Seu nome não pode começar com um número!");
+					throw new DomainException("Your login name cannot start with a number!");
 				}
 				Person person = new Person(id, name, password, 1);
 				personRepository.save(person);
 				return "Added Person";
 			}
-		} catch (Exception e) {
-			System.out.println("Algo deu errado");
-		}
 		return "Error";
 	}
 	
@@ -54,7 +50,7 @@ public class PersonServices {
 			if (p != null) {
 				System.out.println(p.toString());
 			} else {
-				System.out.println("Não existem Pessoas cadastradas.");
+				System.out.println("There are no registered people.");
 			}
 		}
 	}

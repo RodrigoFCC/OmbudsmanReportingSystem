@@ -25,11 +25,11 @@ public class PersonServices {
 			        throw new DomainException("A user with that name already exists");
 			    }
 				if (firstCaracterIsNumber == true) {
-					throw new DomainException("Seu nome não pode começar com um número!");
+					throw new DomainException("Your login name cannot start with a number!");
 				}
 				Person person = new Person(id, name, password, 0);
 				personRepository.save(person);
-				return "Added Person";
+				return "Person added";
 			} else if (option == 2){
 				
 				if (existingPerson != null) {
@@ -40,7 +40,7 @@ public class PersonServices {
 				}
 				Person person = new Person(id, name, password, 1);
 				personRepository.save(person);
-				return "Added Person";
+				return "Person added";
 			}
 		return "Error";
 	}

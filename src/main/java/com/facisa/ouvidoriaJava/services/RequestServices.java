@@ -32,7 +32,7 @@ public class RequestServices {
 					return "Request added";
 				}
 			} catch (Exception e) {
-				System.out.println("Algo deu errado");
+				System.out.println("Unexpected error");
 			}
 			return "Error";
 		}

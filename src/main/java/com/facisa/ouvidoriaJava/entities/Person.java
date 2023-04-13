@@ -18,7 +18,7 @@ public class Person implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String name;
 	private String password;
 	private Integer access;
@@ -27,7 +27,7 @@ public class Person implements Serializable{
 	}
 
 	
-	public Person(Integer id, String name, String password, Integer access) {
+	public Person(Long id, String name, String password, Integer access) {
 		this.id = id;
 		this.name = name;
 		this.password = password;
@@ -55,7 +55,7 @@ public class Person implements Serializable{
 	}
 
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 	
@@ -66,7 +66,7 @@ public class Person implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", password=" + password + ", access=" + access + "]";
+		return "Person [id=" + id + ", name=" + name + ", password=" + password + "]";
 	}
 	
 	

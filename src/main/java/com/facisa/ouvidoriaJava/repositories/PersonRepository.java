@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.facisa.ouvidoriaJava.entities.Person;
 import com.facisa.ouvidoriaJava.entities.Request;
 
-public interface PersonRepository extends CrudRepository<Person, Integer>{
+public interface PersonRepository extends CrudRepository<Person, Long>{
 	
 	Person findByName(String name);
 }

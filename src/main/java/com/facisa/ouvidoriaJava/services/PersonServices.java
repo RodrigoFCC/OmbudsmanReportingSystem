@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.facisa.ouvidoriaJava.entities.Person;
+import com.facisa.ouvidoriaJava.entities.Professor;
+import com.facisa.ouvidoriaJava.entities.Student;
 import com.facisa.ouvidoriaJava.exceptions.DomainException;
 import com.facisa.ouvidoriaJava.repositories.PersonRepository;
 
@@ -16,7 +18,7 @@ public class PersonServices {
 	PersonRepository personRepository;
 	
 	
-	public String addPerson(Integer id, String name, String password, int option) {
+	public String addPerson(Long id, String name, String password, int option) {
 			char firstCaracter = name.charAt(0);
 			boolean firstCaracterIsNumber = Character.isDigit(firstCaracter);
 			Person existingPerson = this.getByName(name);
@@ -27,7 +29,7 @@ public class PersonServices {
 				if (firstCaracterIsNumber == true) {
 					throw new DomainException("Your login name cannot start with a number!");
 				}
-				Person person = new Person(id, name, password, 0);
+				Person person = new Professor(id, name, password,1);
 				personRepository.save(person);
 				return "Person added";
 			} else if (option == 2){
@@ -38,7 +40,7 @@ public class PersonServices {
 				if (firstCaracterIsNumber == true) {
 					throw new DomainException("Your login name cannot start with a number!");
 				}
-				Person person = new Person(id, name, password, 1);
+				Person person = new Student(id, name, password,0);
 				personRepository.save(person);
 				return "Person added";
 			}

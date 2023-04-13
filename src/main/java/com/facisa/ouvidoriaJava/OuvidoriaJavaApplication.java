@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.facisa.ouvidoriaJava.entities.Person;
+import com.facisa.ouvidoriaJava.entities.Professor;
+import com.facisa.ouvidoriaJava.entities.Student;
 import com.facisa.ouvidoriaJava.entities.RequestType;
 import com.facisa.ouvidoriaJava.exceptions.DomainException;
 import com.facisa.ouvidoriaJava.repositories.PersonRepository;
@@ -122,7 +124,7 @@ public class OuvidoriaJavaApplication implements CommandLineRunner{
 			
 		
 			while (option != 7) {
-				//try {
+				try {
 				if (p.getAccess() == 0) {
 					System.out.println("1- Register a Request");
 					System.out.println("2- List Requests");
@@ -257,18 +259,18 @@ public class OuvidoriaJavaApplication implements CommandLineRunner{
 					}
 	
 				} else if (option == 7) {
-	//				login = 0;
+					login = 0;
 					System.out.println("Returning to the login menu");
 					System.out.println("------------------------------");
 				}
 				
-	//			}catch (DomainException e) {
-	//			    System.out.println("Erro: " + e.getMessage());
-	//			}catch (NumberFormatException e) {
-	//			    System.out.println("Erro: digite apenas números");
-	//			}catch (RuntimeException e) {
-	//				System.out.println("Erro indesejado");
-	//			}		
+				}catch (DomainException e) {
+				    System.out.println("Error: " + e.getMessage());
+				}catch (NumberFormatException e) {
+				    System.out.println("Error: write only numbers");
+				}catch (RuntimeException e) {
+					System.out.println("Unexpected error");
+				}		
 		}
 		}	
 		sc.close();
